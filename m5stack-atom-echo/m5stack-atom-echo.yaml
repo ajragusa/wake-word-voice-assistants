@@ -13,9 +13,8 @@ esp32:
   board: m5stack-atom
   framework:
     type: esp-idf
-    version: 5.1.5
-    platform_version: 5.4.0
-
+    version: 5.4.0
+    platform_version: 6.10.0
 logger:
 api:
 
