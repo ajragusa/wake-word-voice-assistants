@@ -67,9 +67,7 @@ voice_assistant:
     - light.turn_off: atom_led
 
 light:
-  - platform: neopixelbus
+  - platform: espidf_rgb_led
     id: atom_led
     pin: GPIO27
-    num_leds: 1
-    type: GRB
-    variant: SK6812
+    chipset: SK6812
