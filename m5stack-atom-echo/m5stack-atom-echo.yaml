@@ -68,3 +68,9 @@ voice_assistant:
         args: ["x.c_str()"]
   on_error:
     - logger.log: "Error in voice assistant!"
+
+button:
+  - platform: template
+    name: "Test Microphone"
+    on_press:
+      - voice_assistant.start:
