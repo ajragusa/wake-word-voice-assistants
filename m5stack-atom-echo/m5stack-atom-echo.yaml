@@ -56,18 +56,17 @@ voice_assistant:
   microphone: echo_microphone
   speaker: echo_speaker
   on_listening:
-    - logger.log: Microphone is listening!
-    - light.turn_on:
-        id: atom_led
-        red: 0.0
-        green: 1.0
-        blue: 0.0
+    - logger.log: "Microphone is listening!"
+  on_stt_vad_start:
+    - logger.log: "Voice activity detected!"
+  on_stt_end:
+    - logger.log:
+        format: "Speech-to-text result: %s"
+        args: ["x.c_str()"]
   on_end:
-    - logger.log: Listening stopped
-    - light.turn_off: atom_led
-
-light:
-  - platform: rgb_led
-    id: atom_led
-    pin: GPIO27
-    chipset: SK6812
+    - logger.log: "Listening stopped"
+button:
+  - platform: template
+    name: "Test Microphone"
+    on_press:
+      - voice_assistant.start:
