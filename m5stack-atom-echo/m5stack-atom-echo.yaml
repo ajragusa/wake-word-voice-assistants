@@ -39,9 +39,8 @@ microphone:
     pdm: true
     channel: left         # Mono, try 'right' if no luck
     sample_rate: 16000    # 16 kHz for voice
-    bits_per_sample: 16   # 16-bit samples
+    bits_per_sample: 16bit   # 16-bit samples
     use_apll: true        # Precise clock
-    i2s_mode: I2S_MODE_PDM  # Explicit PDM mode
 
 #speaker:
 #  - platform: i2s_audio
