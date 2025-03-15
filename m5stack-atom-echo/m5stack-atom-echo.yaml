@@ -47,9 +47,9 @@ speaker:
     channel: right
     buffer_duration: 60ms
 
-micro_wake_word:
-  models:
-    - model: okay_nabu
+#micro_wake_word:
+# models:
+#   - model: okay_nabu
 
 voice_assistant:
   id: va
