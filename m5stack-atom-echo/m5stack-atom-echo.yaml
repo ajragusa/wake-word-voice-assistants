@@ -48,7 +48,8 @@ speaker:
     buffer_duration: 60ms
 
 micro_wake_word:
-  model: okay_nabu
+  models:
+    - model: okay_nabu
 
 voice_assistant:
   id: va
