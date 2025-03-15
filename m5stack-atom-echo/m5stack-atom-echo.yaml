@@ -67,7 +67,3 @@ voice_assistant:
         args: ["x.c_str()"]
   on_end:
     - logger.log: "Listening stopped"
-  on_audio:
-    - logger.log:
-        format: "Audio buffer size: %d"
-        args: ["audio->size()"]
