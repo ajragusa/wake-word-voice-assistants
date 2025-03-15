@@ -65,8 +65,3 @@ voice_assistant:
         args: ["x.c_str()"]
   on_end:
     - logger.log: "Listening stopped"
-button:
-  - platform: template
-    name: "Test Microphone"
-    on_press:
-      - voice_assistant.start:
