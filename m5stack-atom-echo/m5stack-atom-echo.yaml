@@ -38,9 +38,9 @@ microphone:
     adc_type: external
     pdm: true
     channel: left         # Mono, try 'right' if no luck
-    sample_rate: 16000    # 16 kHz for voice
+    sample_rate: 8000    # 16 kHz for voice
     bits_per_sample: 16bit   # 16-bit samples
-    use_apll: true        # Precise clock
+    use_apll: false        # Precise clock
 
 #speaker:
 #  - platform: i2s_audio
