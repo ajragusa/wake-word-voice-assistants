@@ -59,6 +59,8 @@ voice_assistant:
   auto_gain: 31dBFS
   on_listening:
     - logger.log: "Microphone is listening!"
+    - delay: 10s  # Stop after 10 seconds if no VAD
+    - voice_assistant.stop:
   on_stt_vad_start:
     - logger.log: "Voice activity detected!"
   on_stt_end:
