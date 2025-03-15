@@ -30,7 +30,7 @@ i2s_audio:
   - id: i2s_audio_bus
     i2s_lrclk_pin: GPIO33
     i2s_bclk_pin: GPIO19
-
+    
 microphone:
   - platform: i2s_audio
     id: echo_microphone
@@ -38,14 +38,14 @@ microphone:
     adc_type: external
     pdm: true
 
-speaker:
-  - platform: i2s_audio
-    id: echo_speaker
-    i2s_dout_pin: GPIO22
-    dac_type: external
-    bits_per_sample: 32bit
-    channel: right
-    buffer_duration: 60ms
+#speaker:
+#  - platform: i2s_audio
+#    id: echo_speaker
+#    i2s_dout_pin: GPIO22
+#    dac_type: external
+#    bits_per_sample: 32bit
+#    channel: right
+#    buffer_duration: 60ms
 
 #micro_wake_word:
 # models:
@@ -54,12 +54,14 @@ speaker:
 voice_assistant:
   id: va
   microphone: echo_microphone
-  speaker: echo_speaker
+#  speaker: echo_speaker
   noise_suppression_level: 2
   auto_gain: 31dBFS
+  on_start:
+    - logger.log: "VA starting!"
   on_listening:
     - logger.log: "Microphone is listening!"
-    - delay: 10s  # Stop after 10 seconds if no VAD
+    - delay: 10s
     - voice_assistant.stop:
   on_stt_vad_start:
     - logger.log: "Voice activity detected!"
@@ -69,3 +71,5 @@ voice_assistant:
         args: ["x.c_str()"]
   on_end:
     - logger.log: "Listening stopped"
+  on_error:
+    - logger.log: "VA error occurred!"
